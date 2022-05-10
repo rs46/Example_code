@@ -26,11 +26,24 @@ def masked(col: list[float], mask: list[bool]) -> list[float]:
     return result
 
 
+def mean(col: list[float]) -> float:
+    return sum(col) / len(col)
+
+
 def main():
     no_rain_mask: list[bool] = less_than(col_data['rain'], 0.3)
     print(no_rain_mask)
     result: list[float] = masked(col_data['high'], no_rain_mask)
     print(result)
+    avg: float = mean(result)
+    print(avg)
+    # code can now be easily be reused for other analysis
+    cold_day_mask: list[bool] = less_than(col_data['low'], 50)
+    print(cold_day_mask)
+    result: list[float] = masked(col_data['rain'], cold_day_mask)
+    print(result)
+    avg: float = mean(result)
+    print(avg)
 
 
 if __name__ == '__main__':
