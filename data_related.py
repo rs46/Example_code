@@ -37,7 +37,7 @@ def main():
     print(result)
     avg: float = mean(result)
     print(avg)
-    # code can now be easily be reused for other analysis
+    # code can now be easily be re-used for other analysis
     cold_day_mask: list[bool] = less_than(col_data['low'], 50)
     print(cold_day_mask)
     result: list[float] = masked(col_data['rain'], cold_day_mask)
